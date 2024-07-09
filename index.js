@@ -30,10 +30,10 @@ const database = require("./config/database");
 database.connect();
 
 //cấu hình roters của home
-const routerHome = require("./routers/client/index.router");
+const routerHome = require(`${__dirname}/routers/client/index.router`);
 routerHome (app);
 //cấu hình routers của admin
-const routerAdmin = require("./routers/admin/index.router");
+const routerAdmin = require(`${__dirname}/routers/admin/index.router`);
 routerAdmin(app);
 
 //Nhúng file tĩnh(css, js)
