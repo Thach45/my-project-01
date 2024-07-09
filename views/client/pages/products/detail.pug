@@ -1,0 +1,10 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+block main 
+    .product-card
+      img(src=product.thumbnail alt="Tên sản phẩm")
+      h2 #{product.title}
+      p.description #{product.description}
+      p.price #{product.price}$
+      if discount
+        p.discounted-price Giảm giá: #{product.discountPercentage}
