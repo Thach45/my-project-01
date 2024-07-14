@@ -26,6 +26,28 @@
     color: #ffc107;
   }
 
+.inner-image img:hover {
+    transform: scale(1.05);
+}
+.product-item:hover {
+  transform: translateY(-5px); /* Hiệu ứng nâng nhẹ khi hover */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Đổ bóng đậm hơn khi hover */
+}
+.inner-title {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #333;
+  text-decoration: none;
+  display: block; /* Đảm bảo tiêu đề luôn chiếm trọn chiều rộng */
+  white-space: nowrap; /* Ngăn tiêu đề xuống dòng */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị dấu "..." khi tiêu đề quá dài */
+}
+.product-item {
+
+  overflow: hidden; /* Giấu phần nội dung bị tràn ra ngoài khi hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 /*CSS cho footer*/
 .footer{

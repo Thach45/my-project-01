@@ -135,12 +135,6 @@ module.exports.createP = async (req, res) => {
         req.body.position = parseInt(req.body.position)
     }
     req.body.deleted = false;
-    console.log(req.body);
-    if(req.file)
-    {
-
-        req.body.thumbnail = `/uploads/${req.file.filename}`
-    }
     const product = new Product(req.body);
     await product.save()
     res.redirect("/admin/products")
@@ -175,10 +169,6 @@ module.exports.editP = async (req, res) => {
     req.body.price = parseInt(req.body.price)
     req.body.discountPercentage = parseInt(req.body.discountPercentage)
     req.body.position = parseInt(req.body.position)
-
-    if (req.file) {
-        req.body.thumbnail = `/uploads/${req.file.filename}`
-    }
     const id = req.params.id;
     try {
         await Product.updateOne({_id: id}, req.body)
