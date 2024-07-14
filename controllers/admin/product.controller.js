@@ -47,8 +47,23 @@ module.exports.index = async (req, res) => {
     const total = Math.ceil(count / pagination.limitPage);
     pagination.page = total;
     //------------------------------------------------------------------------
+    let sortName = req.query.sortName
+    let desc_or_asc = req.query.desc_or_asc
+    let sortDirection = "desc"
+    if(!sortName)
+    {
+        sortName = "position"
+    }
+    else{
 
-    const products = await Product.find(find).sort({ position: "desc" }).limit(pagination.limitPage).skip(pagination.skip)
+        
+        if(desc_or_asc == "asc")
+        {
+            sortDirection = "asc"
+        }
+        console.log(sortDirection);
+    }
+    const products = await Product.find(find).sort({ [sortName]: sortDirection }).limit(pagination.limitPage).skip(pagination.skip)
     res.render("admin/pages/product/index.pug", {
         pageTitle: "Trang tổng quan",
         products: products,

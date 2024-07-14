@@ -185,3 +185,39 @@ if(uploadImg)
     })
 
 }
+
+//Lọc nhiều tính năng
+const sortSelect = document.querySelector("[sort-select]");
+if(sortSelect)
+{
+    const url = new URL(window.location.href);
+    sortSelect.addEventListener("change",()=>{
+        const opSelect =  sortSelect.value
+        const str = opSelect.split("-")
+        const sortName = str[0];
+        const desc_or_asc = str[1];
+        
+        if (sortName) {
+            url.searchParams.set("sortName", sortName);
+            url.searchParams.set("desc_or_asc", desc_or_asc);
+
+        }
+        else {
+            url.searchParams.delete("desc_or_asc");
+            url.searchParams.delete("sortName");
+
+        }
+        window.location.href = url.href;
+        console.log(sortName +" "+ dsc_or_esc);
+    })
+
+    const clear = document.querySelector("[sort-clear]")
+    if(clear)
+    {   
+        clear.addEventListener("click",() =>{
+            url.searchParams.delete("desc_or_asc");
+            url.searchParams.delete("sortName");
+            window.location.href = url.href;
+        })
+    }
+}

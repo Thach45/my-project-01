@@ -7,9 +7,9 @@ const upload = multer()
 const cloudinary = require('cloudinary').v2
 const streamifier = require('streamifier')
 cloudinary.config({
-    cloud_name: 'drblblupt',
-    api_key: '448762746375892',
-    api_secret: 'FfuL_9a0vFUWohEd-wOn5FpPsFg' // Click 'View Credentials' below to copy your API secret
+    cloud_name: process.env.cloudName,
+    api_key: process.env.cloudKey,
+    api_secret: process.env.cloudSecrit // Click 'View Credentials' below to copy your API secret
 });
 
 // end cloudinary
