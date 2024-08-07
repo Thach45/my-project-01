@@ -29,6 +29,11 @@ app.set("view engine", "pug");
 const database = require("./config/database");
 database.connect();
 
+//tinyMCE
+var path = require('path');
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+
+
 //cấu hình roters của home
 const routerHome = require(`${__dirname}/routers/client/index.router`);
 routerHome (app);
